@@ -50,6 +50,17 @@
                 <a href="/blog/{{  $post->slug }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
                     keep Reading
                 </a>
+                
+                @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
+                <!-- 로그인 했는지 && 작성자와 id가 같은지-->
+                    <span class="float-right">
+                        <a 
+                            href="/blog/{{ $post->slug }}/edit"
+                            class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
+                            Edit
+                        </a>
+                    </span>
+                @endif
             </div>
         </div>
     @endforeach
