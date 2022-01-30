@@ -31,7 +31,7 @@
     @foreach ($posts as $post)
         <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
             <div class="div">
-                <img src="https://cdn.pixabay.com/photo/2015/09/05/20/02/coding-924920_960_720.jpg" alt="">
+                <img src="{{ asset('images/'.$post->image_path) }}" alt="">
             </div>
 
             <div class="div">
