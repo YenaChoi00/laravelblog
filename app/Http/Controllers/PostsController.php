@@ -8,6 +8,11 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=>['index', 'show']]);
+        // 로그인하지 않은 사용자가 url에 /blog/create 를 입력하면 로그인 페이지로 넘어감
+    }
 
     public function index()
     {
