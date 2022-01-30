@@ -57,12 +57,14 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        return view('blog.show')
+            ->with('post', Post::where('slug', $slug)->first()); // DB에 slug라는 col이 존재하는지 확인하고, 있다면 값이 $slug와 같은지를 확인
+            // 있다면 첫 번째 것을 가져오기
     }
 
     /**
